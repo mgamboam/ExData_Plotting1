@@ -15,9 +15,8 @@ generatePlot2 <- function(){
           bg = "white")
       
       #Generate first plot
-      with(subSet, hist(Global_active_power, 
-            main="Global Active Power", 
-            xlab="Global Active Power (kilowatts)", 
-            col="red"))
+      with(subSet, plot(Global_active_power, 
+            type="l", 
+            ylab = "Global Active Power (kilowatts)"))
       dev.off()   # Close plot and save file   
 }

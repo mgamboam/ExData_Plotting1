@@ -1,21 +1,16 @@
 #Load libraries
 library(data.table)
 
-generatePlot1 <- function(){
+generatePlot2 <- function(){
       
       #Load the Data
-      rawData <- fread ("./data/household_power_consumption.txt", na.strings="?", stringsAsFactors=FALSE, header=TRUE)
-      
-      #Convert the dates into r date objects
-      rawData$Date <- as.Date(rawData$Date, "%d/%m/%Y")
-      
-      #Select only the dates needed for the plots and convert information to numeric
-      subSet <- rawData[rawData$Date >= "2007-02-01" & rawData$Date <= "2007-02-02"]
+      subSet <- fread ("./data/hhd.csv", na.strings="?", stringsAsFactors=FALSE, header=TRUE)
       subSet$Global_active_power <- as.numeric(subSet$Global_active_power)
       subSet$Global_reactive_power <- as.numeric(subSet$Global_reactive_power)
+      subSet$Time_stamp <- as.POSIXct(subSet$Time_stamp, format="%Y-%m-%d %H:%M:%S")
       
       # Open plotting file
-      png(filename = "plot1.png",
+      png(filename = "plot2.png",
           width = 480, height = 480, units = "px", pointsize = 12,
           bg = "white")
       

@@ -1,3 +1,4 @@
+## NOTICE: Function cleanData.R is used to generate smaller data subset
 ## Introduction
 
 This assignment uses data from

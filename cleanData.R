@@ -1,7 +1,7 @@
 #Clean Data
 library(data.table)
 
-cleanDataset <- function(){
+cleanData <- function(){
       #Load the Data
       rawData <- fread ("./data/household_power_consumption.txt", na.strings="?", stringsAsFactors=FALSE, header=TRUE)
       

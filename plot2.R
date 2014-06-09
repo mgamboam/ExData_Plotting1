@@ -1,7 +1,7 @@
 #Load libraries
 library(data.table)
 
-generatePlot2 <- function(){
+generatePlot2 <- function(){ 
       
       #Load the Data
       subSet <- fread ("./data/hhd.csv", na.strings="?", stringsAsFactors=FALSE, header=TRUE)
@@ -15,8 +15,9 @@ generatePlot2 <- function(){
           bg = "white")
       
       #Generate first plot
-      with(subSet, plot(Global_active_power, 
+      with(subSet, plot(Time_stamp, Global_active_power, 
             type="l", 
-            ylab = "Global Active Power (kilowatts)"))
+            ylab = "Global Active Power (kilowatts)",
+            xlab = ""))
       dev.off()   # Close plot and save file   
 }
